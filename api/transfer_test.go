@@ -3,8 +3,6 @@ package api
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
-	"io"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -64,11 +62,6 @@ func TestTransfer(t *testing.T) {
 				store.EXPECT().TransferTx(gomock.Any(), gomock.Eq(arg)).Times(1)
 			},
 			checkResponse: func(recorder *httptest.ResponseRecorder) {
-				data, err := io.ReadAll(recorder.Body)
-				require.NoError(t, err)
-
-				fmt.Println(string(data))
-
 				require.Equal(t, http.StatusOK, recorder.Code)
 			},
 		},
