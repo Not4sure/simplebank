@@ -15,7 +15,7 @@ type renewAccessTokenRequest struct {
 
 type renewAccessTokenResponse struct {
 	AccessToken          string    `json:"access_token"`
-	AccessTokenExpiresAt time.Time `json:"access_token_expires_at`
+	AccessTokenExpiresAt time.Time `json:"access_token_expires_at"`
 }
 
 func (server *Server) renewAccessToken(ctx *gin.Context) {
